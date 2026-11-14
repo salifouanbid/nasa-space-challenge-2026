@@ -1,4 +1,19 @@
 # nasa-space-challenge-2026
+## Première livraison des sources
+
+Cette livraison ajoute un cœur C++11 indépendant du moteur, les scénarios Alpha, Beta et Gamma, la localisation française et anglaise, la provenance des données NASA et les guides d’intégration Unreal Engine 4.8 et Unity. La collaboration de cette version est locale et simulée ; aucun réseau, compte ou matchmaking n’est inclus.
+
+Le cœur se compile et se teste sans Unreal ni Unity :
+
+```bash
+cmake -S . -B build
+cmake --build build
+ctest --test-dir build --output-on-failure
+```
+
+La séparation entre règles, données JSON et adaptateurs permet de réutiliser la logique dans les deux moteurs. Les scènes 3D, Blueprints, widgets, contrôleurs et prefabs restent toutefois spécifiques au moteur choisi. Voir [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) et [`docs/NASA_DATA_SOURCES.md`](docs/NASA_DATA_SOURCES.md).
+
+Le scénario Gamma est basé sur les métadonnées NASA/GSFC du modèle LOLA du pôle Sud. Les indices de glace sont traités comme une cible d’observation scientifique et non comme une découverte garantie.
      ASTRA
 Space Mission Design & Exploration Simulator
 

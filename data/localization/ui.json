@@ -1,0 +1,38 @@
+{
+  "fr": {
+    "scenario.alpha.name": "Alpha — Plaines basaltiques",
+    "scenario.alpha.objective": "Caractériser une surface volcanique ancienne.",
+    "scenario.beta.name": "Beta — Hautes terres et cratères",
+    "scenario.beta.objective": "Comparer les reliefs et les unités géologiques.",
+    "scenario.gamma.name": "Gamma — Pôle Sud",
+    "scenario.gamma.objective": "Étudier un site polaire et rechercher des indices de glace sans garantir sa présence.",
+    "poi.alpha.basalt01": "Affleurement basaltique",
+    "poi.alpha.basalt02": "Site de régolithe",
+    "poi.beta.craterRim": "Bord de cratère",
+    "poi.beta.regolith01": "Régolithe des hautes terres",
+    "poi.gamma.rim": "Relief du pôle Sud",
+    "poi.gamma.shadowedSite": "Région ombragée — cible scientifique",
+    "mission.complete": "Mission réussie",
+    "mission.partial": "Mission partiellement réussie",
+    "mission.interrupted": "Mission interrompue",
+    "mission.scientificFailure": "Données scientifiques insuffisantes"
+  },
+  "en": {
+    "scenario.alpha.name": "Alpha — Basaltic Plains",
+    "scenario.alpha.objective": "Characterize an ancient volcanic surface.",
+    "scenario.beta.name": "Beta — Highlands and Craters",
+    "scenario.beta.objective": "Compare landforms and geological units.",
+    "scenario.gamma.name": "Gamma — South Pole",
+    "scenario.gamma.objective": "Study a polar site and search for ice indicators without guaranteeing their presence.",
+    "poi.alpha.basalt01": "Basalt outcrop",
+    "poi.alpha.basalt02": "Regolith site",
+    "poi.beta.craterRim": "Crater rim",
+    "poi.beta.regolith01": "Highlands regolith",
+    "poi.gamma.rim": "South Pole landform",
+    "poi.gamma.shadowedSite": "Shadowed region — science target",
+    "mission.complete": "Mission complete",
+    "mission.partial": "Mission partially complete",
+    "mission.interrupted": "Mission interrupted",
+    "mission.scientificFailure": "Insufficient scientific data"
+  }
+}

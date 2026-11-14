@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "languageKeys": ["fr", "en"],
+  "scenarios": [
+    {
+      "id": "alpha",
+      "nameKey": "scenario.alpha.name",
+      "objectiveKey": "scenario.alpha.objective",
+      "terrainProfile": "open_plain_basalt",
+      "difficulty": 1,
+      "realWorldBasis": "lunar basaltic plains; gameplay terrain is simplified",
+      "constraints": {"time": 120, "energy": 100, "oxygen": 100, "dataCapacity": 60, "massCapacity": 15},
+      "success": {"requiredPoints": 2, "scienceScore": 20},
+      "points": [
+        {"id":"alpha-basalt-01","category":"basalt_outcrop","nameKey":"poi.alpha.basalt01","scienceValue":10,"dataProduced":8,"energyCost":8,"timeCost":10,"sampleMass":0.5,"requiresCamera":true},
+        {"id":"alpha-basalt-02","category":"regolith_site","nameKey":"poi.alpha.basalt02","scienceValue":12,"dataProduced":10,"energyCost":10,"timeCost":12,"sampleMass":0.8,"requiresSpectrometer":true}
+      ]
+    },
+    {
+      "id": "beta",
+      "nameKey": "scenario.beta.name",
+      "objectiveKey": "scenario.beta.objective",
+      "terrainProfile": "highlands_craters",
+      "difficulty": 2,
+      "realWorldBasis": "lunar highlands and cratered terrain; gameplay terrain is simplified",
+      "constraints": {"time": 105, "energy": 90, "oxygen": 100, "dataCapacity": 50, "massCapacity": 14},
+      "success": {"requiredPoints": 2, "scienceScore": 24},
+      "points": [
+        {"id":"beta-crater-rim","category":"crater_rim","nameKey":"poi.beta.craterRim","scienceValue":12,"dataProduced":9,"energyCost":12,"timeCost":14,"sampleMass":0.4,"requiresCamera":true},
+        {"id":"beta-regolith-01","category":"regolith_site","nameKey":"poi.beta.regolith01","scienceValue":14,"dataProduced":12,"energyCost":14,"timeCost":16,"sampleMass":1.0,"requiresSpectrometer":true}
+      ]
+    },
+    {
+      "id": "gamma",
+      "nameKey": "scenario.gamma.name",
+      "objectiveKey": "scenario.gamma.objective",
+      "terrainProfile": "south_pole_shadowed_craters",
+      "difficulty": 3,
+      "realWorldBasis": "87-90°S South Pole LOLA DEM mosaic; ice is a hypothesis/observation target, not guaranteed",
+      "constraints": {"time": 90, "energy": 85, "oxygen": 100, "dataCapacity": 45, "massCapacity": 13},
+      "success": {"requiredPoints": 2, "scienceScore": 24},
+      "points": [
+        {"id":"gamma-rim-observation","category":"polar_landform","nameKey":"poi.gamma.rim","scienceValue":12,"dataProduced":8,"energyCost":12,"timeCost":14,"sampleMass":0.0,"requiresCamera":true},
+        {"id":"gamma-shadowed-site","category":"possible_ice_site","nameKey":"poi.gamma.shadowedSite","scienceValue":14,"dataProduced":12,"energyCost":18,"timeCost":18,"sampleMass":0.6,"requiresSpectrometer":true}
+      ]
+    }
+  ]
+}
