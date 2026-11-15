@@ -18,12 +18,12 @@ AAstraInteractableActor::AAstraInteractableActor()
         MeshComponent->SetRelativeScale3D(FVector(0.5f));
     }
 
-    DisplayName = TEXT("Ã‰chantillon scientifique");
+    DisplayName = TEXT("Échantillon scientifique");
 }
 
 void AAstraInteractableActor::Interact(AActor* InteractingActor)
 {
-    const FString Message = FString::Printf(TEXT("ASTRA : Ã©chantillon analysÃ© â€” %s"), *DisplayName);
+    const FString Message = FString::Printf(TEXT("ASTRA : échantillon analysé — %s"), *DisplayName);
     UE_LOG(LogTemp, Log, TEXT("%s"), *Message);
 
     if (GEngine)
