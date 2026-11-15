@@ -1,41 +1,44 @@
-# ASTRA — Module 01 : Mission Design System
+# ASTRA — Module 01 : Mission Design et Runtime
 
-Le module de conception de mission est intégré au projet Unreal canonique situé dans `ProjetAstra/`.
+Le module de conception et de déroulement de mission est intégré au projet Unreal canonique situé dans `ProjetAstra/`.
 
 ## Emplacements intégrés
 
-- Code C++ public : `ProjetAstra/Source/ProjetAstra/Public/Mission/`
-- Code C++ privé : `ProjetAstra/Source/ProjetAstra/Private/Mission/`
-- Scénario JSON : `ProjetAstra/Content/ASTRA/Data/Missions/Mission_001_LunarSurvey.json`
+- Préparation de mission : `ProjetAstra/Source/ProjetAstra/Public/Mission/AstraMissionSubsystem.h`
+- Runtime de mission : `ProjetAstra/Source/ProjetAstra/Public/Mission/AstraMissionRuntimeSubsystem.h`
+- Implémentations : `ProjetAstra/Source/ProjetAstra/Private/Mission/`
+- Scénario JSON de référence : `ProjetAstra/Content/ASTRA/Data/Missions/Mission_001_LunarSurvey.json`
 - Projet Unreal : `ProjetAstra/ProjetAstra.uproject`
 
-## Fonctionnalités
+## Runtime Blueprint
 
-Le système :
+Dans un Blueprint ayant accès au Game Instance :
 
-- stocke les contraintes d'une mission ;
-- contient un catalogue d'équipements ;
-- ajoute et retire les équipements choisis par le joueur ;
-- calcule masse, coût, énergie, carburant et capacité de communication ;
-- vérifie les dépendances entre équipements ;
-- renvoie les blocages et avertissements de validation ;
-- expose les fonctions et structures à Blueprint ;
-- fournit `InitializeMission001Defaults()` pour charger le scénario lunaire de démonstration.
+1. Appeler `Get Game Instance` puis `Get Subsystem`.
+2. Sélectionner `AstraMissionRuntimeSubsystem`.
+3. Appeler `Initialize Mission 001 Runtime Defaults` pour charger le scénario Gamma prêt à tester.
+4. Appeler `Start Mission`.
+5. Appeler `Observe Point` avec `gamma-rim-observation` et `bHasCamera=true`.
+6. Appeler `Observe Point` avec `gamma-shadowed-site` et `bHasSpectrometer=true`.
+7. Appeler `Finish Mission`.
+8. Lire `Get Mission Report` pour afficher le résultat.
 
-Les valeurs numériques sont des unités d'équilibrage de jeu. Elles ne sont pas des spécifications réelles de la NASA ou d'un système spatial certifié.
+Le runtime expose aussi `Configure Runtime Mission` pour charger Alpha, Beta ou un futur scénario depuis un widget, un Data Asset ou un lecteur JSON. Les ressources, les points scientifiques, les événements `OnRuntimeStateChanged`, `OnPointObserved` et `OnMissionEnded` sont accessibles aux Blueprints.
 
-## Utilisation Blueprint
+## Règles implémentées
 
-1. Appeler `Get Game Instance`.
-2. Appeler `Get Subsystem` et sélectionner `AstraMissionSubsystem`.
-3. Appeler `Initialize Mission 001 Defaults`.
-4. Appeler `Get Available Equipment` pour obtenir le catalogue.
-5. Utiliser `Add Equipment By Id` avec les identifiants tels que `EQ_CAMERA`, `EQ_BATTERY` et `EQ_ROVER`.
-6. Appeler `Evaluate Configuration` pour lire les totaux, marges, avertissements et blocages.
-7. Autoriser la validation uniquement si `bCanLaunchMission` vaut `true`.
+Le runtime :
 
-Pour la configuration complète de démonstration, les sept équipements du catalogue produisent les valeurs attendues : masse 120, coût 177, marge énergétique 25, marge carburant 20 et communication 80.
+- vérifie la configuration initiale ;
+- consomme l’énergie et le temps lors d’une observation ;
+- refuse une observation si l’équipement requis est absent ;
+- limite la capacité de données et la masse collectée ;
+- interrompt la mission lorsque l’oxygène ou le temps sont épuisés ;
+- calcule le score scientifique et le nombre d’échantillons ;
+- produit les états `Complete`, `Partial`, `ScientificFailure` et `Interrupted`.
 
-## Vérification
+Les valeurs numériques sont des unités d’équilibrage de jeu. Elles ne sont pas des spécifications réelles de la NASA ou d'un système spatial certifié.
 
-La compilation Unreal doit être effectuée avec Unreal Engine 5.8 sur une machine disposant de l'éditeur et de l'outil `Build.bat`. Elle n'a pas été exécutée dans l'environnement Linux d'intégration.
+## Limites connues
+
+La création des widgets UMG, le placement des points dans les niveaux et la compilation UE5.8 doivent encore être réalisés ou validés dans Unreal Editor sur Windows. La compilation Unreal n'a pas été exécutée dans l'environnement Linux d'intégration.
