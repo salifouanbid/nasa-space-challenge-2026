@@ -7,28 +7,28 @@ UENUM(BlueprintType)
 enum class EAstraEquipmentCategory : uint8
 {
     ScientificInstrument UMETA(DisplayName = "Instrument scientifique"),
-    PowerSystem          UMETA(DisplayName = "SystÃ¨me Ã©nergÃ©tique"),
-    Mobility             UMETA(DisplayName = "MobilitÃ©"),
+    PowerSystem          UMETA(DisplayName = "Système énergétique"),
+    Mobility             UMETA(DisplayName = "Mobilité"),
     Communication        UMETA(DisplayName = "Communication"),
     Support              UMETA(DisplayName = "Support")
 };
 
-/** Valeurs d'Ã©quilibrage du prototype (unitÃ©s de jeu), pas des spÃ©cifications NASA. */
+/** Valeurs d'équilibrage du prototype (unités de jeu), pas des spécifications NASA. */
 USTRUCT(BlueprintType)
 struct PROJETASTRA_API FAstraEquipmentDefinition
 {
     GENERATED_BODY()
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ASTRA|Ã‰quipement")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ASTRA|Équipement")
     FName EquipmentId = NAME_None;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ASTRA|Ã‰quipement")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ASTRA|Équipement")
     FText DisplayName;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ASTRA|Ã‰quipement", meta = (MultiLine = "true"))
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ASTRA|Équipement", meta = (MultiLine = "true"))
     FText Description;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ASTRA|Ã‰quipement")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ASTRA|Équipement")
     EAstraEquipmentCategory Category = EAstraEquipmentCategory::Support;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ASTRA|Ressources", meta = (ClampMin = "0.0"))
@@ -53,7 +53,7 @@ struct PROJETASTRA_API FAstraEquipmentDefinition
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ASTRA|Ressources", meta = (ClampMin = "0"))
     int32 CommunicationPoints = 0;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ASTRA|Ã‰quipement")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ASTRA|Équipement")
     TArray<FName> RequiredEquipmentIds;
 };
 
@@ -98,48 +98,48 @@ struct PROJETASTRA_API FAstraMissionEvaluation
 {
     GENERATED_BODY()
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     bool bCanLaunchMission = false;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     float TotalMassKg = 0.0f;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     float RemainingMassKg = 0.0f;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     float TotalCostCredits = 0.0f;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     float RemainingBudgetCredits = 0.0f;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     float TotalEnergySupplyUnits = 0.0f;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     float TotalEnergyDemandUnits = 0.0f;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     float EnergyMarginUnits = 0.0f;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     float TotalFuelSupplyUnits = 0.0f;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     float TotalFuelDemandUnits = 0.0f;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     float FuelMarginUnits = 0.0f;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     int32 CommunicationPoints = 0;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     int32 RequiredCommunicationPoints = 0;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     TArray<FText> BlockingIssues;
 
-    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Ã‰valuation")
+    UPROPERTY(BlueprintReadOnly, Category = "ASTRA|Évaluation")
     TArray<FText> Warnings;
 };

@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
-#include "AstraMissionTypes.h"
+#include "Mission/AstraMissionTypes.h"
 #include "AstraMissionSubsystem.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FAstraMissionConfigurationChanged);
@@ -17,23 +17,23 @@ public:
     UFUNCTION(BlueprintCallable, Category = "ASTRA|Mission")
     void ConfigureMission(const FAstraMissionConstraints& NewConstraints);
 
-    /** Charge le scÃ©nario de dÃ©monstration M001 avec un jeu d'Ã©quipements cohÃ©rent. */
+    /** Charge le scénario de démonstration M001 avec un jeu d'équipements cohérent. */
     UFUNCTION(BlueprintCallable, Category = "ASTRA|Mission")
     bool InitializeMission001Defaults();
 
     UFUNCTION(BlueprintPure, Category = "ASTRA|Mission")
     bool IsMissionConfigured() const;
 
-    UFUNCTION(BlueprintCallable, Category = "ASTRA|Ã‰quipement")
+    UFUNCTION(BlueprintCallable, Category = "ASTRA|Équipement")
     bool RegisterEquipment(const FAstraEquipmentDefinition& Equipment);
 
-    UFUNCTION(BlueprintCallable, Category = "ASTRA|Ã‰quipement")
+    UFUNCTION(BlueprintCallable, Category = "ASTRA|Équipement")
     void ClearEquipmentCatalogue();
 
-    UFUNCTION(BlueprintCallable, Category = "ASTRA|Ã‰quipement")
+    UFUNCTION(BlueprintCallable, Category = "ASTRA|Équipement")
     bool AddEquipmentById(FName EquipmentId);
 
-    UFUNCTION(BlueprintCallable, Category = "ASTRA|Ã‰quipement")
+    UFUNCTION(BlueprintCallable, Category = "ASTRA|Équipement")
     bool RemoveEquipmentById(FName EquipmentId);
 
     UFUNCTION(BlueprintCallable, Category = "ASTRA|Mission")
@@ -45,10 +45,10 @@ public:
     UFUNCTION(BlueprintPure, Category = "ASTRA|Mission")
     bool CanLaunchMission() const;
 
-    UFUNCTION(BlueprintPure, Category = "ASTRA|Ã‰quipement")
+    UFUNCTION(BlueprintPure, Category = "ASTRA|Équipement")
     TArray<FAstraEquipmentDefinition> GetAvailableEquipment() const;
 
-    UFUNCTION(BlueprintPure, Category = "ASTRA|Ã‰quipement")
+    UFUNCTION(BlueprintPure, Category = "ASTRA|Équipement")
     TArray<FAstraEquipmentDefinition> GetSelectedEquipment() const;
 
     UFUNCTION(BlueprintPure, Category = "ASTRA|Mission")
