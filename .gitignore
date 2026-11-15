@@ -73,3 +73,13 @@ Plugins/**/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+# Unreal Engine generated files
+**/Binaries/
+**/Intermediate/
+**/Saved/
+**/DerivedDataCache/
+**/.vs/
+*.suo
+*.VC.db
+*.VC.VC.opendb

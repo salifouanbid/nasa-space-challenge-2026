@@ -1,0 +1,27 @@
+ASTRA â€” dÃ©marrage du socle C++
+
+Projet : ProjetAstra
+Module : ProjetAstra
+
+Ce script a crÃ©Ã© le socle C++ et l'arborescence de contenu. Il ne crÃ©e pas encore les modÃ¨les 3D,
+les animations, les planÃ¨tes dÃ©taillÃ©es, les sons ou les interfaces finales : ces Ã©lÃ©ments doivent
+Ãªtre fabriquÃ©s/importÃ©s dans Unreal au fil des Ã©tapes.
+
+Commandes du personnage de base :
+- W, A, S, D : dÃ©placement
+- Souris : orientation de la camÃ©ra
+- Espace : saut
+- E : interaction avec un acteur AAstraInteractableActor
+
+Ã‰tapes aprÃ¨s exÃ©cution :
+1. Fermer Unreal Editor.
+2. Clic droit sur le fichier .uproject > Generate Visual Studio project files.
+3. Ouvrir le .sln gÃ©nÃ©rÃ©.
+4. Choisir Development Editor et Win64, puis Build Solution.
+5. Relancer le .uproject.
+6. Dans le niveau, ajouter un Player Start et un sol (Cube Ã©tirÃ© ou Landscape).
+7. Dans Project Settings > Maps & Modes, vÃ©rifier que AstraGameMode est le GameMode par dÃ©faut.
+8. Pour tester l'interaction, ajouter un acteur C++ AstraInteractableActor au niveau, devant le Player Start.
+
+Le personnage est pour l'instant une capsule Unreal sans modÃ¨le d'astronaute. Le modÃ¨le 3D et les animations
+seront ajoutÃ©s plus tard via un Blueprint dÃ©rivÃ© de AstraExplorerCharacter.

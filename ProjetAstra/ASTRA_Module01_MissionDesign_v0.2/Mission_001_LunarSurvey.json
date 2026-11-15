@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.1",
+  "project": "ASTRA",
+  "module": "Mission Design System",
+  "mission_id": "ASTRA_M001_LUNAR_SURVEY",
+  "title": "Mission 001 — Reconnaissance et collecte lunaire",
+  "description": "Préparer une mission d'exploration lunaire, sélectionner les équipements sous contraintes, puis récupérer trois éléments scientifiques dans une zone d'étude délimitée.",
+  "design_note": "Toutes les valeurs numériques ci-dessous sont des paramètres provisoires d'équilibrage du prototype. Elles ne représentent pas des performances certifiées de la NASA ou d'un matériel spatial réel.",
+  "phase_order": [
+    "briefing",
+    "mission_design",
+    "validation",
+    "launch_and_transfer_simulation",
+    "lunar_arrival",
+    "surface_operations",
+    "sample_collection",
+    "communications_and_data_return",
+    "debriefing"
+  ],
+  "constraints": {
+    "max_payload_mass_kg_game": 120,
+    "max_budget_credits": 190,
+    "minimum_energy_margin_units": 15,
+    "minimum_communication_capacity": 50,
+    "minimum_fuel_margin_units": 10
+  },
+  "mission_objectives": [
+    { "id": "OBJ-01", "title": "Configurer une mission cohérente", "type": "design_validation", "required": true },
+    { "id": "OBJ-02", "title": "Maintenir les communications avec le centre de contrôle", "type": "communications", "minimum_capacity": 50, "required": true },
+    { "id": "OBJ-03", "title": "Collecter trois éléments scientifiques", "type": "sample_collection", "required_count": 3, "required": true },
+    { "id": "OBJ-04", "title": "Terminer l'expédition avec une réserve de carburant", "type": "fuel_reserve", "minimum_remaining_units": 10, "required": true }
+  ],
+  "equipment_catalog": [
+    {
+      "id": "EQ_CAMERA", "name": "Caméra panoramique", "category": "science",
+      "mass_kg_game": 4, "cost_credits": 12, "energy_supply_units": 0, "energy_demand_units": 6,
+      "communication_points": 0, "fuel_supply_units": 0, "fuel_demand_units": 0,
+      "requires": [], "supports_sample_tags": ["imaging", "survey"]
+    },
+    {
+      "id": "EQ_SPECTROMETER", "name": "Spectromètre portable", "category": "science",
+      "mass_kg_game": 12, "cost_credits": 30, "energy_supply_units": 0, "energy_demand_units": 18,
+      "communication_points": 0, "fuel_supply_units": 0, "fuel_demand_units": 0,
+      "requires": ["EQ_BATTERY"], "supports_sample_tags": ["analysis", "mineralogy"]
+    },
+    {
+      "id": "EQ_DRILL", "name": "Carottier simplifié", "category": "science",
+      "mass_kg_game": 18, "cost_credits": 25, "energy_supply_units": 0, "energy_demand_units": 20,
+      "communication_points": 0, "fuel_supply_units": 0, "fuel_demand_units": 0,
+      "requires": ["EQ_BATTERY"], "supports_sample_tags": ["sampling", "subsurface"]
+    },
+    {
+      "id": "EQ_BATTERY", "name": "Module batterie", "category": "power",
+      "mass_kg_game": 14, "cost_credits": 15, "energy_supply_units": 50, "energy_demand_units": 0,
+      "communication_points": 0, "fuel_supply_units": 0, "fuel_demand_units": 0,
+      "requires": [], "supports_sample_tags": []
+    },
+    {
+      "id": "EQ_SOLAR_ARRAY", "name": "Panneau solaire déployable", "category": "power",
+      "mass_kg_game": 20, "cost_credits": 22, "energy_supply_units": 35, "energy_demand_units": 0,
+      "communication_points": 0, "fuel_supply_units": 0, "fuel_demand_units": 0,
+      "requires": [], "supports_sample_tags": []
+    },
+    {
+      "id": "EQ_HIGH_GAIN_RADIO", "name": "Antenne de communication", "category": "communications",
+      "mass_kg_game": 8, "cost_credits": 18, "energy_supply_units": 0, "energy_demand_units": 8,
+      "communication_points": 80, "fuel_supply_units": 0, "fuel_demand_units": 0,
+      "requires": [], "supports_sample_tags": ["communications", "telemetry"]
+    },
+    {
+      "id": "EQ_ROVER", "name": "Rover d'exploration léger", "category": "mobility",
+      "mass_kg_game": 44, "cost_credits": 55, "energy_supply_units": 0, "energy_demand_units": 8,
+      "communication_points": 0, "fuel_supply_units": 100, "fuel_demand_units": 80,
+      "requires": [], "supports_sample_tags": ["mobility", "surface_exploration"]
+    }
+  ],
+  "sample_targets": [
+    { "id": "SAMPLE-01", "name": "Échantillon de régolithe A", "zone": "LandingSite", "scientific_interest": "Caractérisation générale du sol", "required_equipment_tags": ["sampling"] },
+    { "id": "SAMPLE-02", "name": "Fragment rocheux B", "zone": "CraterRim", "scientific_interest": "Observation d'un matériau rocheux", "required_equipment_tags": ["imaging"] },
+    { "id": "SAMPLE-03", "name": "Échantillon minéral C", "zone": "RockField", "scientific_interest": "Analyse minéralogique simplifiée", "required_equipment_tags": ["analysis"] }
+  ],
+  "validation_rules": [
+    "La masse totale de l'équipement sélectionné ne doit pas dépasser 120 unités de masse du scénario.",
+    "Le coût total ne doit pas dépasser 190 crédits.",
+    "La marge énergétique doit atteindre au moins 15 unités.",
+    "La marge de carburant doit atteindre au moins 10 unités.",
+    "Un équipement dont les dépendances ne sont pas sélectionnées invalide la configuration.",
+    "La capacité de communication doit atteindre au moins 50 points.",
+    "Le rover est nécessaire pour atteindre les zones éloignées dans ce prototype.",
+    "La mission est réussie lorsque les trois éléments scientifiques sont collectés et que le bilan est validé."
+  ],
+  "full_demo_loadout_check": {
+    "all_seven_equipment_items_selected": true,
+    "total_mass_kg_game": 120,
+    "total_cost_credits": 177,
+    "energy_supply_units": 85,
+    "energy_demand_units": 60,
+    "energy_margin_units": 25,
+    "fuel_supply_units": 100,
+    "fuel_demand_units": 80,
+    "fuel_margin_units": 20,
+    "communication_points": 80,
+    "expected_validation": "pass_with_mass_warning"
+  },
+  "result_grading": {
+    "success_condition": "all_required_objectives_completed",
+    "score_components": [
+      "objectives_completed",
+      "mass_efficiency",
+      "budget_efficiency",
+      "energy_reserve",
+      "fuel_reserve",
+      "communications_available"
+    ]
+  }
+}

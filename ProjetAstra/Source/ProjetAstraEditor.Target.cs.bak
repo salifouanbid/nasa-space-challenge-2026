@@ -1,0 +1,13 @@
+using UnrealBuildTool;
+using System.Collections.Generic;
+
+public class ProjetAstraEditorTarget : TargetRules
+{
+    public ProjetAstraEditorTarget(TargetInfo Target) : base(Target)
+    {
+        Type = TargetType.Editor;
+        BuildEnvironment = TargetBuildEnvironment.Unique;
+        DefaultBuildSettings = BuildSettingsVersion.V5;
+        ExtraModuleNames.Add("ProjetAstra");
+    }
+}
