@@ -39,10 +39,10 @@ bool UAstraMissionSubsystem::InitializeMission001Defaults()
 
     FAstraMissionConstraints Constraints;
     Constraints.MissionId = TEXT("ASTRA_M001_LUNAR_SURVEY");
-    Constraints.MissionTitle = FText::FromString(TEXT("Mission 001 â€” Reconnaissance et collecte lunaire"));
-    Constraints.ScientificObjective = FText::FromString(TEXT("Ã‰tudier une petite zone lunaire et rÃ©cupÃ©rer trois Ã©lÃ©ments scientifiques : rÃ©golithe, fragment rocheux et Ã©chantillon minÃ©ral."));
+    Constraints.MissionTitle = FText::FromString(TEXT("Mission 001 — Reconnaissance et collecte lunaire"));
+    Constraints.ScientificObjective = FText::FromString(TEXT("Étudier une petite zone lunaire et récupérer trois éléments scientifiques : régolithe, fragment rocheux et échantillon minéral."));
     Constraints.MaxPayloadMassKg = 120.0f;
-    Constraints.MaxBudgetCredits = 190.0f; // 177 crÃ©dits pour le catalogue complet de dÃ©monstration.
+    Constraints.MaxBudgetCredits = 190.0f; // 177 crédits pour le catalogue complet de démonstration.
     Constraints.MinimumEnergyMarginUnits = 15.0f;
     Constraints.MinimumFuelMarginUnits = 10.0f;
     Constraints.MinimumCommunicationPoints = 50;
@@ -75,13 +75,13 @@ bool UAstraMissionSubsystem::InitializeMission001Defaults()
     const TArray<FName> BatteryRequirement = { FName(TEXT("EQ_BATTERY")) };
 
     const bool bAllRegistered =
-        RegisterEquipment(MakeEquipment(TEXT("EQ_CAMERA"), TEXT("CamÃ©ra panoramique"), TEXT("Imagerie gÃ©nÃ©rale de la zone d'Ã©tude."), EAstraEquipmentCategory::ScientificInstrument, 4.0f, 12.0f, 0.0f, 6.0f, 0.0f, 0.0f, 0, NoRequirements)) &&
-        RegisterEquipment(MakeEquipment(TEXT("EQ_SPECTROMETER"), TEXT("SpectromÃ¨tre portable"), TEXT("Analyse minÃ©ralogique simplifiÃ©e."), EAstraEquipmentCategory::ScientificInstrument, 12.0f, 30.0f, 0.0f, 18.0f, 0.0f, 0.0f, 0, BatteryRequirement)) &&
-        RegisterEquipment(MakeEquipment(TEXT("EQ_DRILL"), TEXT("Carottier simplifiÃ©"), TEXT("PrÃ©lÃ¨vement d'un Ã©chantillon superficiel."), EAstraEquipmentCategory::ScientificInstrument, 18.0f, 25.0f, 0.0f, 20.0f, 0.0f, 0.0f, 0, BatteryRequirement)) &&
-        RegisterEquipment(MakeEquipment(TEXT("EQ_BATTERY"), TEXT("Module batterie"), TEXT("Stockage d'Ã©nergie pour les instruments."), EAstraEquipmentCategory::PowerSystem, 14.0f, 15.0f, 50.0f, 0.0f, 0.0f, 0.0f, 0, NoRequirements)) &&
-        RegisterEquipment(MakeEquipment(TEXT("EQ_SOLAR_ARRAY"), TEXT("Panneau solaire dÃ©ployable"), TEXT("Apport Ã©nergÃ©tique simplifiÃ© pour la mission."), EAstraEquipmentCategory::PowerSystem, 20.0f, 22.0f, 35.0f, 0.0f, 0.0f, 0.0f, 0, NoRequirements)) &&
+        RegisterEquipment(MakeEquipment(TEXT("EQ_CAMERA"), TEXT("Caméra panoramique"), TEXT("Imagerie générale de la zone d'étude."), EAstraEquipmentCategory::ScientificInstrument, 4.0f, 12.0f, 0.0f, 6.0f, 0.0f, 0.0f, 0, NoRequirements)) &&
+        RegisterEquipment(MakeEquipment(TEXT("EQ_SPECTROMETER"), TEXT("Spectromètre portable"), TEXT("Analyse minéralogique simplifiée."), EAstraEquipmentCategory::ScientificInstrument, 12.0f, 30.0f, 0.0f, 18.0f, 0.0f, 0.0f, 0, BatteryRequirement)) &&
+        RegisterEquipment(MakeEquipment(TEXT("EQ_DRILL"), TEXT("Carottier simplifié"), TEXT("Prélèvement d'un échantillon superficiel."), EAstraEquipmentCategory::ScientificInstrument, 18.0f, 25.0f, 0.0f, 20.0f, 0.0f, 0.0f, 0, BatteryRequirement)) &&
+        RegisterEquipment(MakeEquipment(TEXT("EQ_BATTERY"), TEXT("Module batterie"), TEXT("Stockage d'énergie pour les instruments."), EAstraEquipmentCategory::PowerSystem, 14.0f, 15.0f, 50.0f, 0.0f, 0.0f, 0.0f, 0, NoRequirements)) &&
+        RegisterEquipment(MakeEquipment(TEXT("EQ_SOLAR_ARRAY"), TEXT("Panneau solaire déployable"), TEXT("Apport énergétique simplifié pour la mission."), EAstraEquipmentCategory::PowerSystem, 20.0f, 22.0f, 35.0f, 0.0f, 0.0f, 0.0f, 0, NoRequirements)) &&
         RegisterEquipment(MakeEquipment(TEXT("EQ_HIGH_GAIN_RADIO"), TEXT("Antenne de communication"), TEXT("Maintien d'une liaison de communication de gameplay."), EAstraEquipmentCategory::Communication, 8.0f, 18.0f, 0.0f, 8.0f, 0.0f, 0.0f, 80, NoRequirements)) &&
-        RegisterEquipment(MakeEquipment(TEXT("EQ_ROVER"), TEXT("Rover d'exploration lÃ©ger"), TEXT("MobilitÃ© de surface et rÃ©serve de carburant abstraite."), EAstraEquipmentCategory::Mobility, 44.0f, 55.0f, 0.0f, 8.0f, 100.0f, 80.0f, 0, NoRequirements));
+        RegisterEquipment(MakeEquipment(TEXT("EQ_ROVER"), TEXT("Rover d'exploration léger"), TEXT("Mobilité de surface et réserve de carburant abstraite."), EAstraEquipmentCategory::Mobility, 44.0f, 55.0f, 0.0f, 8.0f, 100.0f, 80.0f, 0, NoRequirements));
 
     OnConfigurationChanged.Broadcast();
     return bMissionConfigured && bAllRegistered;

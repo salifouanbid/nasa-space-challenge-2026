@@ -83,3 +83,4 @@ DerivedDataCache/*
 *.suo
 *.VC.db
 *.VC.VC.opendb
+*.bak

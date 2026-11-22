@@ -1,10 +1,10 @@
-# Adaptateur Unreal Engine 4.8
+# Adaptateur Unreal Engine 5.8
 
-Ce dossier décrit le branchement du cœur `AstraCore` dans un projet Unreal 4.8. L’éditeur Unreal n’est pas installé dans l’environnement de génération, donc aucun fichier `.uproject` ou Blueprint binaire n’est fabriqué ici.
+Ce dossier décrit le branchement du cœur portable `AstraCore` et du projet Unreal `ProjetAstra/` dans Unreal Engine 5.8. L’éditeur Unreal n’est pas installé dans l’environnement de génération, donc la compilation du module, l’ouverture des niveaux et la validation des Blueprints doivent être effectuées sur Windows avec UE5.8.
 
-1. Copier `include/AstraCore` et `src/MissionCore.cpp` dans un module C++ du projet.
-2. Ajouter le chemin d’inclusion au fichier `*.Build.cs`.
-3. Créer une classe `UAstraMissionSubsystem` ou un `BP_MissionManager` qui possède une instance de `astra::MissionCore`.
+1. Ouvrir `ProjetAstra/ProjetAstra.uproject` avec Unreal Engine 5.8.
+2. Le module Unreal `ProjetAstra` contient déjà le personnage, le rover, les interactions et `UAstraMissionSubsystem`.
+3. Pour intégrer le cœur portable, ajouter `include/AstraCore` et `src/MissionCore.cpp` comme couche métier indépendante dans le module, sans recopier les règles dans les widgets.
 4. Charger `data/scenarios/scenarios.json` depuis le répertoire de contenu empaqueté et convertir les entrées en `MissionConfig`/`SciencePoint`.
 5. Exposer aux Blueprints les actions `StartMission`, `ObservePoint`, `SpendResource`, `FinishMission` et les événements `OnResourceChanged`, `OnDiscoveryRecorded`, `OnMissionEnded`.
 6. Garder les widgets dans `UUserWidget` et ne pas dupliquer les calculs du cœur.

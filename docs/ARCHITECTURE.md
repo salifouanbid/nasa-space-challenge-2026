@@ -6,11 +6,11 @@ Le projet sépare le modèle de mission de l’affichage et de l’entrée utili
 
 Les scénarios et textes vivent dans `data/` en JSON. Les valeurs qui décrivent le gameplay sont donc modifiables sans réécrire les règles.
 
-## Intégration Unreal Engine 4.8
+## Intégration Unreal Engine 5.8
 
-Créer un module C++ `AstraCore` dans le projet Unreal et ajouter `include/` et `src/` au module. Le futur `BP_MissionManager` appelle une façade Unreal qui traduit les événements Blueprint vers `MissionCore`. Les widgets proposés par le cahier des charges (`WBP_MissionPrep`, `WBP_ExplorationHUD`, `WBP_ScientificMap`, `WBP_Lab`, `WBP_MissionReport`) ne doivent pas contenir les règles de ressources.
+Le projet Unreal concret se trouve dans `ProjetAstra/`. Le module `UAstraMissionSubsystem` gère la préparation de mission et `UAstraMissionRuntimeSubsystem` gère le déroulement jouable : ressources, observations, objectifs, événements et rapport final. Les widgets proposés par le cahier des charges (`WBP_MissionPrep`, `WBP_ExplorationHUD`, `WBP_ScientificMap`, `WBP_Lab`, `WBP_MissionReport`) doivent appeler ces subsystèmes et ne doivent pas contenir les règles de ressources.
 
-L’environnement actuel ne contient pas Unreal Engine 4.8 : la compilation de l’éditeur, des niveaux et des Blueprints devra être faite sur une machine équipée de la version demandée. Le cœur portable est volontairement écrit dans un sous-ensemble compatible avec les compilateurs utilisés par les anciennes versions d’Unreal.
+Le runtime Unreal est écrit dans `ProjetAstra/Source/ProjetAstra/`. La compilation de l’éditeur, des niveaux et des Blueprints doit être faite sur une machine équipée d’Unreal Engine 5.8 ; cet environnement Linux ne contient pas l’éditeur. Le cœur portable `AstraCore` reste disponible pour les tests C++ indépendants et pour une future façade commune.
 
 ## Intégration Unity
 
